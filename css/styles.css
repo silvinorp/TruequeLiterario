@@ -1,0 +1,216 @@
+/* Importar aquí la font */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Satisfy&display=swap');
+
+* {
+  margin:0%;
+  padding: 0%;
+}
+html {
+  /*background-color: #fbfbfb;*/
+  font-size: 2.5vw;
+  min-font-size: 18px; /* Tamaño de letra base para dispositivos móviles */
+  max-font-size: 36px; /* Tamaño de letra base para Desktop */
+}
+header {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+/*   background-color: #383838;  */
+/*   background: linear-gradient(to right, #202020 10%,#383838); */
+  background: linear-gradient(to right, #202020 0%, #202020 15%, #383838 50%, #202020 1000%);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  border-radius: 0 0 25px 25px ;
+}
+#header2 {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;  
+}
+#header2 h1 {
+  width: 90%;
+}
+
+body {
+  margin-top: 180px; 
+  background: #dcdcdc;
+/*   height: 100vh; */
+/*   min-height: 100vh; */
+}
+main{
+  min-height: 100vh;
+}
+#logo{
+  padding: 2vw;
+} 
+#logo img{
+  width: 40vw;
+}
+
+
+#menu {
+  width: auto;
+/*   height: 6vw; */
+  padding: 2vh; /*  2vw; */
+  background-color: #b186862d;/* #e2d9d92d */
+  font-size: 40%;
+  border-radius: 5px;
+  display: flex;
+  justify-content:space-around;
+  align-items: center;
+  color: white;
+}
+
+.menuop {
+  display:inline-block;
+  background: #f66b8a;
+  color: white;
+  padding: 0.5vw 0.5vw; 
+  border-radius: 5px;
+}
+.menuop:hover {
+  background: #d8d8da;
+  color: black;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+p {
+  font-size: 60%;  
+  margin: 1vw auto;
+  text-align: justify;
+  width: 90%;
+  line-height: 1.5;
+}
+h1, h5 {
+  text-align: center;
+}
+
+footer {
+ /*  height: 8vh; */
+  width: 100%;
+  background-color: #383838;
+  color: #fbfbfb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50%;
+  border-radius: 25px 25px 0 0;
+  position: sticky;
+  bottom: 0;
+  padding-top: 0.7vw;
+  font-family: 'Satisfy', cursive;
+  font-size: 50%;
+} 
+
+.icono {
+  width: 2vw;
+}
+#foot1{
+  height: 90%;
+  width: 65%;
+  display:flex;
+  justify-content:space-around;
+  align-items: center;
+  /*padding: 10px;*/
+}
+ h4 {
+  font-weight: normal;   
+}
+
+/* ============================== INICIO Y REGISTRO ==============================*/
+.container {
+  width: 300px;
+  padding: 2vh;
+  margin: 2vh auto;
+  background-color: #ffffff;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 80%;
+}
+
+.form-group input {
+  width: 100%;
+  height: 5vh;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+}
+
+.btn {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+
+/* ============================== CARRUSEL ==============================*/
+
+.carousel-container {
+  width: 90%;
+  margin: auto;
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel-slide {
+  display: flex;
+  animation: scroll 10s linear infinite; /* Agrega animación de desplazamiento */
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: auto;
+}
+
+@keyframes scroll {
+  0% {
+      transform: translateX(0);
+  }
+  100% {
+      transform: translateX(-100%);
+  }
+}
+
+/* ============================== Lista de libros ==============================*/
+
+table {
+  border-collapse: collapse;
+  width: 90%;
+  margin: 1vw auto;
+}
+ th, td {
+  padding: 8px;
+  text-align: left;
+  font-size: 60%;
+}
+th {
+  background-color: #f2f2f2;
+  text-align: center;
+  font-size: 80%;
+}
+td:nth-child(4), td:nth-child(5) {
+  text-align: center;
+}  
+td button{
+  padding: 1px;
+}

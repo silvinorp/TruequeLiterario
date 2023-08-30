@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="icon" href="../img/Logo solo.ico">
+    <title>Bibliotema de trueque literario</title>
+
+</head>
+
+<body>
+    <header>
+        <div id="logo">
+            <img src="../img/Nombre completo.jpg" alt="logo completo">
+        </div>
+        <div id="menu">
+            <nav id="menu1">
+                <h1>Edidar libro</h1>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <form action="biblio_per.html" id="agregarLibroForm">
+                <div class="form-group">
+                    <label for="titulo">Título:</label>
+                    <input type="text" id="titulo" name="titulo" required>
+                </div>
+                <div class="form-group">
+                    <label for="autor">Autor:</label>
+                    <input type="text" id="autor" name="autor" required>
+                </div>
+                <div class="form-group">
+                    <label for="genero">Género:</label>
+                    <input type="text" id="genero" name="genero" required>
+                </div>
+                <div class="form-group">
+                    <label for="disponibilidad">Disponible para intercambio :</label>
+                    <select id="disponibilidad" name="disponibilidad" required>
+                        <option value="si">Sí</option>
+                        <option value="no">No</option>
+                    </select><br>
+                </div>
+                <button type="submit" class="btn">Modificar Libro</button>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <div id="foot1">
+            <a href="mailto:"><img class="icono" src="../img/email.svg" alt="Email"></a>
+            <a href="https://www.linkedin.com" target="_blank"><img class="icono"
+                    src="../img/linkedin.svg" alt="LinkedIn"></a>
+            <a href="https://www.facebook.com" target="_blank"><img class="icono" src="../img/facebook.svg"
+                    alt="Facebook"></a>
+        </div>
+        <div class="foot2">
+            <h4>&copy; 2023 Comisión 23527 - Grupo 11.</h4>
+        </div>
+    </footer>
+
+</body>
+
+</html>
