@@ -38,7 +38,8 @@ header {
 
 body {
   margin-top: 12vw;; 
-  background: #dcdcdc;
+   background: #dcdcdc; /*color de fondo asignado inicialmente*/
+  /*transition: background-color 1s ease;  utilizado para cambiar el fondo según la hora del día */
 }
 main{
   min-height: 100vh;
@@ -88,6 +89,7 @@ p {
 }
 h1, h5 {
   text-align: center;
+  margin-bottom: 1vw;
 }
 
 footer {
@@ -214,3 +216,93 @@ td:nth-child(4), td:nth-child(5) {
 td button{
   padding: 1px;
 }
+
+
+/*======================================== Estilos para rotar cada libro                         */
+.contenedor-libros {
+  perspective: 1000px;
+  display: flex;
+  justify-content:space-around;
+  align-items: center;
+  flex-wrap: wrap;
+/*   height: 100vh; */
+}
+
+.card-libro {
+ /* width: 200px;
+ height: 200px; */
+ width: 20vw;
+ height: 60vh;
+ margin: 3vh 0;
+ transform-style:preserve-3d;
+ transition: transform 1s;
+}
+
+.libro {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+}
+
+.libro img {
+  width: 100%;
+  height: 100%;
+}
+
+.text {
+  width: 100%;
+  height: 100%;
+  background-color: #333;
+  color: #fff;  
+  backface-visibility: hidden;  
+  transform: rotateX(180deg);  
+  overflow: auto;  
+  font-size: 70%;
+}
+
+.card-libro:hover {
+  transform: rotateX(180deg);
+}
+
+
+/*======================================== Estilos para tira de libro ============================================ */
+
+/* Estilos para el contenedor de libros */
+
+.lista-libros{
+  display: flex;
+}
+
+.book-container {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  align-items: center;
+  width: 95%;
+  margin: auto;
+}
+
+/* Estilos para las portadas de libros */
+.books {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+
+.books img {
+  width: 200px;
+  height: 300px;
+  margin-right: 10px; 
+}
+
+/* Estilos para los botones */
+button {
+  background: transparent; 
+  border: none; 
+}
+
+.flecha {
+  width: 2vw;
+}
+
