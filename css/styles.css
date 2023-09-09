@@ -274,7 +274,7 @@ td button{
   display: flex;
 }
 
-.book-container {
+.contenedor2-libros {
   display: flex;
   flex-wrap: nowrap;
   overflow: hidden;
@@ -283,20 +283,18 @@ td button{
   margin: auto;
 }
 
-/* Estilos para las portadas de libros */
-.books {
+.libros {
   display: flex;
   transition: transform 0.5s ease;
 }
 
 
-.books img {
-  width: 200px;
-  height: 300px;
+.libros img {
+  width: 15vw;
+  /* height: 300px; */
   margin-right: 10px; 
 }
 
-/* Estilos para los botones */
 button {
   background: transparent; 
   border: none; 

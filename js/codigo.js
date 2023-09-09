@@ -1,12 +1,12 @@
 
 // Obtén referencias a elementos HTML
-const booksContainer = document.querySelector('.books');
+const booksContainer = document.querySelector('.libros');
 const prevButton = document.getElementById('prevBtn');
 const nextButton = document.getElementById('nextBtn');
 
 // Variables para rastrear el índice actual
 let currentIndex = 0;
-const maxIndex = document.querySelectorAll('.books img').length - 1;
+const maxIndex = document.querySelectorAll('.libros img').length - 1;
 
 // Eventos de los botones
 prevButton.addEventListener('click', showPreviousBook);
@@ -31,7 +31,7 @@ function updateBooksPosition() {
     booksContainer.style.transform = `translateX(${translateX}px)`;
 }
 
-
+/*================================== Cambio del color del fondo según hora del día ==================================*/
 document.addEventListener("DOMContentLoaded", function () {
     const body = document.body;
 
