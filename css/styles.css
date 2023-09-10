@@ -266,7 +266,7 @@ td button{
 }
 
 
-/*======================================== Estilos para tira de libro ============================================ */
+/*======================================== Estilos para tira de libros ============================================ */
 
 /* Estilos para el contenedor de libros */
 
@@ -302,5 +302,68 @@ button {
 
 .flecha {
   width: 2vw;
+}
+
+/*======================================== Estilos para tres grupos de libros ============================================ */
+
+.contenedor-galeria {
+  position: relative;
+  text-align: center;
+  display: flex; /* Usamos flexbox para centrar verticalmente */
+  align-items: center; /* Centra verticalmente los elementos */
+  justify-content: center; /* Centra horizontalmente los elementos */
+  height: 50vh; /* Establece la altura del contenedor al 100% del viewport */
+}
+
+
+
+#libroIzquierda, #libroDerecha {
+  width: 7vw;
+}
+
+
+
+/* Estilos para los grupos de libros */
+.grupoLibros {
+  display: inline-block;
+  margin: 0 5vw;
+  opacity: 0.5; /* Opacidad para los grupos de libros */
+  width: 8vw;
+}
+
+/* Estilos para la imagen principal */
+.libro-principal {
+  position: absolute;
+  top: 50%; 
+  left: 50%;
+  transform: translate(-50%, -50%); 
+  z-index: 1;
+  width: 30vw;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Estilos para el botón "Siguiente" */
+#botonSiguiente {
+  background-color: #007BFF;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+#botonSiguiente:hover {
+  background-color: #0056b3;
 }
 

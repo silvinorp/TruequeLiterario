@@ -1,4 +1,5 @@
 
+
 // Obtén referencias a elementos HTML
 const booksContainer = document.querySelector('.libros');
 const prevButton = document.getElementById('prevBtn');
@@ -30,6 +31,61 @@ function updateBooksPosition() {
     const translateX = -currentIndex * 210; // 210 es el ancho de la portada más el margen derecho
     booksContainer.style.transform = `translateX(${translateX}px)`;
 }
+
+/*======================================== Tres grupos de libros ============================================ */
+
+let libros = [];
+let librosDerecha = [];
+let indiceLibroPrincipal = 0;
+
+function inicializarGaleria() {
+
+    // Agrega rutas de imágenes de libros al grupo izquierdo
+    libros.push('img/Port1.jpg');
+    libros.push('img/Port2.jpg');
+    libros.push('img/Port3.jpg');
+    libros.push('img/Port4.jpg');
+    libros.push('img/Port5.jpg');
+    libros.push('img/Port6.jpg');
+    libros.push('img/Port7.jpg');
+    libros.push('img/Port8.jpg');
+    libros.push('img/Port9.jpg');
+    libros.push('img/Port10.jpg');
+    libros.push('img/Port11.jpg');
+    libros.push('img/Port12.jpg');
+
+    const libroIzquierda = document.getElementById('libroIzquierda');
+    const libroPrincipal = document.getElementById('libroPrincipal');
+    const libroDerecha = document.getElementById('libroDerecha');   
+
+    libroIzquierda.src = libros[indiceLibroPrincipal];   
+}
+
+function libroSiguiente() {
+    console.log("siguiente ",indiceLibroPrincipal);
+    if (indiceLibroPrincipal <= libros.length) {
+        indiceLibroPrincipal++;    
+        libroDerecha.src = libroPrincipal.src;
+        libroPrincipal.src = libroIzquierda.src;
+        libroIzquierda.src = libros[indiceLibroPrincipal];
+    }    
+}
+
+function libroAnterior() {
+    console.log("Anterior ",indiceLibroPrincipal);
+    if (indiceLibroPrincipal > 0) {
+        indiceLibroPrincipal--;
+        libroIzquierda.src = libroPrincipal.src;
+        libroPrincipal.src = libroDerecha.src;
+        libroDerecha.src = libros[indiceLibroPrincipal-2];
+    }    
+}
+// Inicializa la galería cuando se carga la página
+window.onload = inicializarGaleria;
+
+
+
+
 
 /*================================== Cambio del color del fondo según hora del día ==================================*/
 document.addEventListener("DOMContentLoaded", function () {
