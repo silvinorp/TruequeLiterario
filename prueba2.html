@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Libros de Open Library</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .pagination button {
+            margin: 0 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Libros de Open Library</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Título</th>
+                <th>Autor</th>
+                <th>Género</th>
+                <th>Portada</th>
+            </tr>
+        </thead>
+        <tbody id="bookTable">
+            <!-- Aquí se llenará la tabla con los datos de la API -->
+        </tbody>
+    </table>
+
+    <div class="pagination" id="pagination">
+        <!-- Botones de paginación se agregarán aquí -->
+    </div>
+
+    <script>
+        let currentPage = 1;
+
+        function loadBooks(page) {
+            const booksPerPage = 10;
+            const offset = (page - 1) * booksPerPage;
+
+            const apiUrl = `https://openlibrary.org/subjects/science_fiction.json?limit=${booksPerPage}&offset=${offset}`;
+
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    const bookTable = document.getElementById('bookTable');
+                    const pagination = document.getElementById('pagination');
+
+                    // Limpiar la tabla y la paginación antes de agregar nuevos datos
+                    bookTable.innerHTML = '';
+                    pagination.innerHTML = '';
+
+                    data.works.forEach(book => {
+                        const title = book.title;
+                        const author = book.authors[0]?.name || 'Desconocido';
+                        const genre = book.subjects?.[0] || 'Desconocido';
+                        const coverUrl = `https://covers.openlibrary.org/b/id/${book.cover_id}-M.jpg`;
+
+                        const row = `
+                            <tr>
+                                <td>${title}</td>
+                                <td>${author}</td>
+                                <td>${genre}</td>
+                                <td><img src="${coverUrl}" alt="${title}"></td>
+                            </tr>
+                        `;
+
+                        bookTable.innerHTML += row;
+                    });
+
+                    // Crear botones de paginación
+                    const totalPages = Math.ceil(data.num_found / booksPerPage);
+
+                    for (let i = 1; i <= totalPages; i++) {
+                        const button = document.createElement('button');
+                        button.textContent = i;
+                        button.addEventListener('click', () => loadBooks(i));
+                        pagination.appendChild(button);
+                    }
+                })
+                .catch(error => console.error(error));
+        }
+
+        // Cargar los libros al cargar la página
+        window.addEventListener('load', () => loadBooks(currentPage));
+    </script>
+</body>
+</html>
+
+

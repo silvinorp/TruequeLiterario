@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Libros de Open Library</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Libros de Open Library</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Título</th>
+                <th>Autor</th>
+                <th>Género</th>
+                <th>Portada</th>
+            </tr>
+        </thead>
+        <tbody id="bookTable">
+            <!-- Aquí se llenará la tabla con los datos de la API -->
+        </tbody>
+    </table>
+
+    <script>
+            console.log("Antes de consultar los géneros");
+            fetch('https://openlibrary.org/subjects/genres.json')
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                console.log("dentro")
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+            console.log("Después de consultar los géneros");
+
+
+
+        // Función para cargar y mostrar los libros desde la API
+        function loadBooks() {
+            // URL de la API de Open Library (ejemplo: libros de ciencia ficción) science_fiction
+            const apiUrl = 'https://openlibrary.org/subjects/love.json?limit=10';
+
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    const bookTable = document.getElementById('bookTable');
+
+                    data.works.forEach(book => {
+                        const title = book.title;
+                        const author = book.authors[0]?.name || 'Desconocido';
+                        const genre = book.subjects?.[0] || 'Desconocido';
+                        const coverUrl = `https://covers.openlibrary.org/b/id/${book.cover_id}-M.jpg`;
+
+                        const row = `
+                            <tr>
+                                <td>${title}</td>
+                                <td>${author}</td>
+                                <td>${genre}</td>
+                                <td><img src="${coverUrl}" alt="${title}"></td>
+                            </tr>
+                        `;
+
+                        bookTable.innerHTML += row;
+                    });
+                })
+                .catch(error => console.error(error));
+        }
+
+        // Cargar los libros al cargar la página
+        window.addEventListener('load', loadBooks);
+    </script>
+</body>
+</html>

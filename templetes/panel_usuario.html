@@ -26,7 +26,7 @@
     <main>
         <h1>Panel de Usuario</h1>
         <div class="container">
-            <form action="procesar_usuario.php" method="post">
+            <form onsubmit="return validarFormulario()"> <!-- action="procesar_usuario.php" method="post" -->
                 <div class="form-group">
                     <label for="nombre">Nombre:</label>
                     <input type="text" id="nombre" name="nombre" required>
@@ -40,8 +40,8 @@
                     <input type="number" id="DNI" name="dni" placeholder="Coloque sólo números" required>
                 </div>                          
                 <div class="form-group">
-                    <label for="dirección">Dirección:</label>
-                    <input type="text" id="dirección" name="dirección" required>
+                    <label for="direccion">Dirección:</label>
+                    <input type="text" id="direccion" name="direccion" required>
                 </div>
                 <div class="form-group">
                     <label for="telefono">Teléfono:</label>
@@ -72,7 +72,7 @@
             <h4>&copy; 2023 Comisión 23527 - Grupo 11.</h4>
         </div>
     </footer>
-
+    <script src="../js/validacion.js"></script>
 </body>
 
 </html>

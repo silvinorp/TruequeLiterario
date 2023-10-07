@@ -114,3 +114,34 @@ document.addEventListener("DOMContentLoaded", function () {
     // Actualiza el fondo cada minuto
     /* setInterval(cambiarFondo, 60000); */
 });
+
+
+
+// Función para buscar libros por género
+function buscarLibrosPorGenero(genero) {
+    const url = `https://openlibrary.org/subjects/${genero}.json`;
+  
+    fetch(url)
+      .then((response) => response.json())
+      .then((data) => {
+        const obras = data.works;
+        console.log(obras);
+        if (obras && obras.length > 0) {
+          console.log(`Libros relacionados con el género "${genero}":`);
+          obras.slice(0, 10).forEach((obra) => {
+            console.log(`Título: ${obra.title}`);
+            console.log(`Autor: ${obra.authors ? obra.authors[0].name : "Desconocido"}`);
+            console.log("=====================");
+          });
+        } else {
+          console.log(`No se encontraron libros relacionados con el género "${genero}".`);
+        }
+      })
+      .catch((error) => {
+        console.error("Ocurrió un error al buscar libros por género:", error);
+      });
+  }
+  
+  // Ejemplo de búsqueda de libros por género (género de ejemplo: "fantasy")
+  buscarLibrosPorGenero("nature");
+  
